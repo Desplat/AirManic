@@ -44,6 +44,7 @@ public class Booking {
 
 	public Booking() {
 		super();
+		this.age = 0;
 	}
 	
 	public Booking(String lastname, String firstname, int age, Flight flight) {

@@ -21,7 +21,7 @@ public class BookingDAO extends DAO<Booking> {
 	}
 
 	public List<Booking> findBookingFromNum(String num) {
-
+		
 		EntityManager em = DatabaseHelper.createEntityManager();
 		DatabaseHelper.beginTx(em);
 
