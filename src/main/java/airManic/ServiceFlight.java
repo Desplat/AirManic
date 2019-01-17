@@ -38,10 +38,11 @@ public class ServiceFlight {
 		System.out.println("Entrez la date de départ dd/mm/yyyy");
 		String quelleDate = lectureClavier.nextLine();
 		Date date;
+		
 		try {
 			date = new SimpleDateFormat("dd/mm/yyyy").parse(quelleDate);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			date = new Date();
 		}
 
