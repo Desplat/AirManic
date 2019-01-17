@@ -1,4 +1,4 @@
-package airManic;
+package airmanic;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
