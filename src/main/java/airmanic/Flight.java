@@ -59,6 +59,8 @@ public class Flight {
 	public Flight() {
 		super();
 		this.type = Type.A330;
+		this.nbrPlace = 0;
+		this.dateDepart = new Date();
 	}
 
 	public Flight(String numero, Type type, int nbrPlace, String departureCity, String arrivalCity, Date dateDepart) {
