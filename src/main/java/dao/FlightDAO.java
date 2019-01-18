@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 import airmanic.Flight;
 import service.DatabaseHelper;
 
-public class FlightDAO extends DAO<Flight> {
+public class FlightDAO implements DAO<Flight> {
 	
 	private static final String SELECT = "select f from Flight f ";
 

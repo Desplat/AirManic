@@ -4,9 +4,9 @@ import javax.persistence.EntityManager;
 
 import service.DatabaseHelper;
 
-public abstract class DAO<T> {
+public interface DAO<T> {
 	
-	public void create(T entity) {
+	public default void create(T entity) {
 		
 		EntityManager em = DatabaseHelper.createEntityManager();
 		try {
@@ -19,7 +19,7 @@ public abstract class DAO<T> {
 		}
 	}
 
-	public void update(T entity) {
+	public default void update(T entity) {
 
 		EntityManager em = DatabaseHelper.createEntityManager();
 		try {

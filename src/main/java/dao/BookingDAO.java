@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 import airmanic.Booking;
 import service.DatabaseHelper;
 
-public class BookingDAO extends DAO<Booking> {
+public class BookingDAO implements DAO<Booking> {
 
 	private static final String SELECT = "select b from Booking b ";
 	
