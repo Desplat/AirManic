@@ -12,13 +12,12 @@ import dao.BookingDAO;
 import dao.FlightDAO;
 
 public class ServiceBooking {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 
 	private BookingDAO bookingDAO;
 
 	public ServiceBooking() {
-		
 
 		bookingDAO = new BookingDAO();
 	}
@@ -59,9 +58,9 @@ public class ServiceBooking {
 		LOG.trace("Entrez le numéro du vol xxxx");
 		String num = lectureClavier.nextLine();
 
-		List<Booking> bookings= bookingDAO.findBookingFromNum(num);
+		List<Booking> bookings = bookingDAO.findBookingFromNum(num);
 		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
-		
+
 		for (Booking booking : bookings) {
 			LOG.trace(booking.toString());
 		}
@@ -74,7 +73,7 @@ public class ServiceBooking {
 		LOG.trace("Entrez le numéro du vol à annulé xxxx");
 		String num = lectureClavier.nextLine();
 
-		Booking booking= bookingDAO.cancelBooking(num);
+		Booking booking = bookingDAO.cancelBooking(num);
 		bookingDAO.delete(booking);
 
 		LOG.trace("Votre réservation est bien annulée");
@@ -87,11 +86,13 @@ public class ServiceBooking {
 		LOG.trace("Entrez le numéro de la réservation xxxx-x");
 		String name = lectureClavier.nextLine();
 
-		List<Booking> bookings= bookingDAO.listBookingFromUser(name);
+		List<Booking> bookings = bookingDAO.listBookingFromUser(name);
 		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
 
-		for (Booking booking : bookings) {
-			LOG.trace("{}", booking.toString());
+		if (LOG.isTraceEnabled()) {
+			for (Booking booking : bookings) {
+				LOG.trace("{}", booking.toString());
+			}
 		}
 	}
 }
