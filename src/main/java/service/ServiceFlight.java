@@ -9,7 +9,6 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import airmanic.Booking;
 import airmanic.Flight;
 import airmanic.Plane;
 import dao.FlightDAO;
@@ -80,7 +79,9 @@ public class ServiceFlight {
 
 		Flight flight = flightDAO.findFlightFromNum(num);
 		LOG.trace("Numéro | Type  | Place | Départ                 | Arrivé             | Date");
-		LOG.trace(flight.toString());
+		if (LOG.isTraceEnabled()) {
+			LOG.trace("{}", flight.toString());
+		}
 		LOG.trace("");
 	}
 
