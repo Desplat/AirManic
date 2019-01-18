@@ -61,8 +61,10 @@ public class ServiceBooking {
 		List<Booking> bookings = bookingDAO.findBookingFromNum(num);
 		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
 
-		for (Booking booking : bookings) {
-			LOG.trace(booking.toString());
+		if (LOG.isTraceEnabled()) {
+			for (Booking booking : bookings) {
+				LOG.trace("{}", booking.toString());
+			}
 		}
 	}
 

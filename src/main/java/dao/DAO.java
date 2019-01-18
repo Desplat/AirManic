@@ -15,7 +15,7 @@ public interface DAO<T> {
 			DatabaseHelper.commitTxAndClose(em);
 		} catch (Exception e) {
 			DatabaseHelper.rollbackTxAndClose(em);
-			throw new RuntimeException(e);
+			//throw new RuntimeException(e);
 		}
 	}
 
@@ -28,7 +28,7 @@ public interface DAO<T> {
 			DatabaseHelper.commitTxAndClose(em);
 		} catch (Exception e) {
 			DatabaseHelper.rollbackTxAndClose(em);
-			throw new RuntimeException(e);
+			//throw new RuntimeException(e);
 		}
 	}
 
