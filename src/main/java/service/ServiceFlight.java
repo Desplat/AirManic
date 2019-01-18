@@ -57,7 +57,6 @@ public class ServiceFlight {
 
 		Flight flight = new Flight(num, type, numPlace, villeDepart, villeArrive, date);
 		flightDAO.create(flight);
-		//lectureClavier.close();
 	}	
 	
 	public void listFlights() {
