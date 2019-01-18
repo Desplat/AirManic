@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration>
-	<appender name="dailyRollingFileAppender"
+
+	<appender name="dailyRollingFileAppenderAIRMANIC"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>rest-demo.log</File>
+		<File>airmanic.log</File>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<FileNamePattern>rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<FileNamePattern>airmanic.%d{yyyy-MM-dd}.log</FileNamePattern>
 			<!-- keep 30 days' worth of history -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -16,6 +17,39 @@
 			</Pattern>
 		</encoder>
 	</appender>
+	
+	<appender name="dailyRollingFileAppenderDAO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>dao.log</File>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>dao.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] %logger{35} - %msg %n
+			</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="dailyRollingFileAppenderMAIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>main.log</File>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<FileNamePattern>main.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] %logger{35} - %msg %n
+			</Pattern>
+		</encoder>
+	</appender>
+	
 	<appender name="consoleAppender"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
@@ -26,26 +60,23 @@
 			<level>TRACE</level>
 		</filter>
 	</appender>
-	<appender name="minuteRollingFileAppender"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- rollover every minute -->
-			<FileNamePattern>c:/tmp/minutes/rest-demo-minute.%d{yyyy-MM-dd_HH-mm}.log
-			</FileNamePattern>
-			<maxHistory>30</maxHistory><!-- keep 30 minutes' worth of history -->
-		</rollingPolicy>
-		<encoder>
-			<Pattern>%-4relative [%thread] [%-5level] %logger{35} - %msg %n
-			</Pattern>
-		</encoder>
-	</appender>
-	<logger name="fr.dta" additivity="false">
-		<level value="ERROR" />
+	
+	<logger name="airmanic" additivity="false">
+		<level value="TRACE" />
 		<appender-ref ref="consoleAppender" />
-		<appender-ref ref="minuteRollingFileAppender" />
-		<appender-ref ref="dailyRollingFileAppender" />
+		<appender-ref ref="dailyRollingFileAppenderAIRMANIC" />
 	</logger>
+	<logger name="dao" additivity="false">
+		<level value="TRACE" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="dailyRollingFileAppenderDAO" />
+	</logger>
+	<logger name="main" additivity="false">
+		<level value="TRACE" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="dailyRollingFileAppenderMAIN" />
+	</logger>
+	
 	<root>
 		<level value="TRACE" />
 		<appender-ref ref="consoleAppender" />

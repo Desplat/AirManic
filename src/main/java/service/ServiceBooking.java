@@ -1,8 +1,10 @@
-package airmanic;
+package service;
 
 import java.util.List;
 import java.util.Scanner;
 
+import airmanic.Booking;
+import airmanic.Flight;
 import dao.BookingDAO;
 import dao.FlightDAO;
 
@@ -11,6 +13,7 @@ public class ServiceBooking {
 	private BookingDAO bookingDAO;
 
 	public ServiceBooking() {
+		
 
 		bookingDAO = new BookingDAO();
 	}

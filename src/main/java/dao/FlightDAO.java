@@ -5,8 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import airmanic.DatabaseHelper;
 import airmanic.Flight;
+import service.DatabaseHelper;
 
 public class FlightDAO extends DAO<Flight> {
 

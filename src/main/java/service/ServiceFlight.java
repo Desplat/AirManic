@@ -1,4 +1,4 @@
-package airmanic;
+package service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +9,8 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import airmanic.Flight;
+import airmanic.Plane;
 import dao.FlightDAO;
 
 public class ServiceFlight {

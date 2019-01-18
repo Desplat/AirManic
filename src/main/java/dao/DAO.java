@@ -2,12 +2,12 @@ package dao;
 
 import javax.persistence.EntityManager;
 
-import airmanic.DatabaseHelper;
+import service.DatabaseHelper;
 
 public abstract class DAO<T> {
 	
 	public void create(T entity) {
-
+		
 		EntityManager em = DatabaseHelper.createEntityManager();
 		try {
 			DatabaseHelper.beginTx(em);

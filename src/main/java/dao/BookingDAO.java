@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import airmanic.Booking;
-import airmanic.DatabaseHelper;
+import service.DatabaseHelper;
 
 public class BookingDAO extends DAO<Booking> {
 

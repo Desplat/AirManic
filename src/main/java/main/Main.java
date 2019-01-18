@@ -5,7 +5,6 @@ import java.util.Date;
 import airmanic.Booking;
 import airmanic.Flight;
 import airmanic.Plane;
-import airmanic.Ui;
 import dao.BookingDAO;
 import dao.FlightDAO;
 

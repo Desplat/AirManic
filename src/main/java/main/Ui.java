@@ -1,13 +1,14 @@
-package airmanic;
+package main;
 
 import java.util.Scanner;
 
-import main.Main;
+import service.ServiceBooking;
+import service.ServiceFlight;
 
 public class Ui {
-
+	
 	public static void mainMenu() {
-
+		
 		System.out.println("1) Gestion des vols");
 		System.out.println("2) Gestion des réservations");
 		System.out.println("3) Quitter\n");
