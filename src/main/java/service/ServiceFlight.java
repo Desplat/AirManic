@@ -15,9 +15,9 @@ import dao.FlightDAO;
 
 public class ServiceFlight {
 
-	private final static Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 	
-	private FlightDAO flightDAO;
+	private FlightDAO flightDAO;s
 
 	public ServiceFlight() {
 

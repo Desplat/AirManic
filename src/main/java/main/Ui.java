@@ -10,9 +10,9 @@ import service.ServiceFlight;
 
 public class Ui {
 
-	private final static Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
+	private static final  Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 	
-	private final static String CHOIX = "Entrez votre choix : ";
+	private static final  String CHOIX = "Entrez votre choix : ";
 	
 	private Ui() {
 		

@@ -3,12 +3,17 @@ package service;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import airmanic.Booking;
 import airmanic.Flight;
 import dao.BookingDAO;
 import dao.FlightDAO;
 
 public class ServiceBooking {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 
 	private BookingDAO bookingDAO;
 
@@ -22,16 +27,16 @@ public class ServiceBooking {
 
 		Scanner lectureClavier = new Scanner(System.in);
 
-		System.out.println("Entrez le numéro du vol xxxx");
+		LOG.trace("Entrez le numéro du vol xxxx");
 		String num = lectureClavier.nextLine();
 
-		System.out.println("Entrez votre nom");
+		LOG.trace("Entrez votre nom");
 		String lastname = lectureClavier.nextLine();
 
-		System.out.println("Entrez votre prénom");
+		LOG.trace("Entrez votre prénom");
 		String firstname = lectureClavier.nextLine();
 
-		System.out.println("Entrez votre age");
+		LOG.trace("Entrez votre age");
 		Integer age = Integer.valueOf(lectureClavier.nextLine());
 
 		FlightDAO flightDAO = new FlightDAO();
@@ -43,7 +48,7 @@ public class ServiceBooking {
 		booking.setNumReservation();
 		bookingDAO.update(booking);
 
-		System.out.println("Votre vol est réservé !\n");
+		LOG.trace("Votre vol est réservé !\n");
 
 	}
 
@@ -51,14 +56,14 @@ public class ServiceBooking {
 
 		Scanner lectureClavier = new Scanner(System.in);
 
-		System.out.println("Entrez le numéro du vol xxxx");
+		LOG.trace("Entrez le numéro du vol xxxx");
 		String num = lectureClavier.nextLine();
 
 		List<Booking> bookings= bookingDAO.findBookingFromNum(num);
-		System.out.println("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
+		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
 		
 		for (Booking booking : bookings) {
-			System.out.println(booking.toString());
+			LOG.trace(booking.toString());
 		}
 	}
 
@@ -66,27 +71,27 @@ public class ServiceBooking {
 
 		Scanner lectureClavier = new Scanner(System.in);
 
-		System.out.println("Entrez le numéro du vol à annulé xxxx");
+		LOG.trace("Entrez le numéro du vol à annulé xxxx");
 		String num = lectureClavier.nextLine();
 
 		Booking booking= bookingDAO.cancelBooking(num);
 		bookingDAO.delete(booking);
 
-		System.out.println("Votre réservation est bien annulée");
+		LOG.trace("Votre réservation est bien annulée");
 	}
 
 	public void listBookingUser() {
 
 		Scanner lectureClavier = new Scanner(System.in);
 
-		System.out.println("Entrez le numéro de la réservation xxxx-x");
+		LOG.trace("Entrez le numéro de la réservation xxxx-x");
 		String name = lectureClavier.nextLine();
 
 		List<Booking> bookings= bookingDAO.listBookingFromUser(name);
-		System.out.println("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
+		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
 
 		for (Booking booking : bookings) {
-			System.out.println(booking.toString());
+			LOG.trace(booking.toString());
 		}
 	}
 }

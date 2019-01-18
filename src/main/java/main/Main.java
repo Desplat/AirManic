@@ -13,9 +13,11 @@ import dao.FlightDAO;
 import service.ServiceFlight;
 
 public class Main {
-
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
+	
 	static boolean ui = true;
-	private final static Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
+	
 
 	public static void main(String[] args) {
 		
