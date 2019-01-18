@@ -9,6 +9,8 @@ import airmanic.Flight;
 import service.DatabaseHelper;
 
 public class FlightDAO extends DAO<Flight> {
+	
+	private static final String SELECT = "select f from Flight f ";
 
 	public void delete(Flight flight) {
 
@@ -29,7 +31,7 @@ public class FlightDAO extends DAO<Flight> {
 		DatabaseHelper.beginTx(em);
 
 		TypedQuery<Flight> query = em
-				.createQuery("select f " + "from Flight f ", Flight.class);
+				.createQuery(SELECT, Flight.class);
 
 		List<Flight> flights = query.getResultList();
 
@@ -44,7 +46,7 @@ public class FlightDAO extends DAO<Flight> {
 		DatabaseHelper.beginTx(em);
 
 		TypedQuery<Flight> query = em
-				.createQuery("select f " + "from Flight f " + "where number=:nbr", Flight.class);
+				.createQuery(SELECT + "where number=:nbr", Flight.class);
 
 		query.setParameter("nbr", num);
 		Flight flight = query.getSingleResult();
@@ -60,7 +62,7 @@ public class FlightDAO extends DAO<Flight> {
 		DatabaseHelper.beginTx(em);
 
 		TypedQuery<Flight> query = em
-				.createQuery("select f " + "from Flight f " + "where f.departureCity=:start and f.arrivalCity=:end", Flight.class);
+				.createQuery(SELECT + "where f.departureCity=:start and f.arrivalCity=:end", Flight.class);
 
 		query.setParameter("start", departureCity);
 		query.setParameter("end", arrivalCity);

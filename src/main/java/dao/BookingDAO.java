@@ -10,7 +10,7 @@ import service.DatabaseHelper;
 
 public class BookingDAO extends DAO<Booking> {
 
-	private final String SELECT = "select b from Booking b ";
+	private static final String SELECT = "select b from Booking b ";
 	
 	public void delete(Booking booking) {
 
