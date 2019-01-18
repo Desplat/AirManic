@@ -2,17 +2,29 @@ package main;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import service.ServiceBooking;
 import service.ServiceFlight;
 
 public class Ui {
+
+	private final static Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 	
-	public static void mainMenu() {
+	private final static String CHOIX = "Entrez votre choix : ";
+	
+	private Ui() {
 		
-		System.out.println("1) Gestion des vols");
-		System.out.println("2) Gestion des réservations");
-		System.out.println("3) Quitter\n");
-		System.out.println("Entrez votre choix : ");
+		throw new IllegalStateException("Utility class");
+	}
+
+	public static void mainMenu() {
+
+		LOG.trace("1) Gestion des vols");
+		LOG.trace("2) Gestion des réservations");
+		LOG.trace("3) Quitter\n");
+		LOG.trace(CHOIX);
 
 		Scanner lectureClavier = new Scanner(System.in);
 		Integer answer = Integer.valueOf(lectureClavier.nextLine());
@@ -29,20 +41,19 @@ public class Ui {
 			Main.changeUi();
 			break;
 		default:
-			System.out.println("Vous devez entrer 1, 2 ou 3 !");
+			LOG.trace("Vous devez entrer 1, 2 ou 3 !");
 			break;
 		}
-		// lectureClavier.close();
 	}
 
 	public static void flightManagement() {
 
-		System.out.println("1) Création d'un vol");
-		System.out.println("2) Liste des vols");
-		System.out.println("3) Trouver un avion avec son numéro");
-		System.out.println("4) Trouver un avion avec ses villes de départ/arrivée");
-		System.out.println("5) Retournez en arrière\n");
-		System.out.println("Entrez votre choix : ");
+		LOG.trace("1) Création d'un vol");
+		LOG.trace("2) Liste des vols");
+		LOG.trace("3) Trouver un avion avec son numéro");
+		LOG.trace("4) Trouver un avion avec ses villes de départ/arrivée");
+		LOG.trace("5) Retournez en arrière\n");
+		LOG.trace(CHOIX);
 
 		Scanner lectureClavier = new Scanner(System.in);
 		Integer answer = Integer.valueOf(lectureClavier.nextLine());
@@ -67,18 +78,16 @@ public class Ui {
 		default:
 			break;
 		}
-
-		// lectureClavier.close();
 	}
 
 	public static void bookingManagement() {
 
-		System.out.println("1) Créer une réservation");
-		System.out.println("2) Voir les réservation d'un vol");
-		System.out.println("3) Annuler une réservation");
-		System.out.println("4) Voir toutes vos réservations");
-		System.out.println("5) Retournez en arrière\n");
-		System.out.println("Entrez votre choix : ");
+		LOG.trace("1) Créer une réservation");
+		LOG.trace("2) Voir les réservation d'un vol");
+		LOG.trace("3) Annuler une réservation");
+		LOG.trace("4) Voir toutes vos réservations");
+		LOG.trace("5) Retournez en arrière\n");
+		LOG.trace(CHOIX);
 
 		Scanner lectureClavier = new Scanner(System.in);
 		Integer answer = Integer.valueOf(lectureClavier.nextLine());
@@ -103,7 +112,5 @@ public class Ui {
 		default:
 			break;
 		}
-
-		// lectureClavier.close();
 	}
 }
