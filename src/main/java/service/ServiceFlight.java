@@ -17,7 +17,7 @@ public class ServiceFlight {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
 	
-	private FlightDAO flightDAO;s
+	private FlightDAO flightDAO;
 
 	public ServiceFlight() {
 
