@@ -29,7 +29,7 @@ public class Flight {
 
 	@Enumerated(EnumType.STRING)
 	@NotNull
-	private Type type;
+	private Plane plane;
 
 	@Column
 	@NotNull
@@ -58,15 +58,15 @@ public class Flight {
 
 	public Flight() {
 		super();
-		this.type = Type.A330;
+		this.plane = Plane.A330;
 		this.nbrPlace = 0;
 		this.dateDepart = new Date();
 	}
 
-	public Flight(String numero, Type type, int nbrPlace, String departureCity, String arrivalCity, Date dateDepart) {
+	public Flight(String numero, Plane type, int nbrPlace, String departureCity, String arrivalCity, Date dateDepart) {
 
 		this.number = numero;
-		this.type = type;
+		this.plane = type;
 		this.nbrPlace = nbrPlace;
 		this.departureCity = departureCity;
 		this.arrivalCity = arrivalCity;
@@ -96,12 +96,12 @@ public class Flight {
 		this.number = numero;
 	}
 
-	public Type getType() {
-		return type;
+	public Plane getPlane() {
+		return plane;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+	public void setPlane(Plane plane) {
+		this.plane = plane;
 	}
 
 	public int getNbrPlace() {
@@ -150,6 +150,6 @@ public class Flight {
 
 	@Override
 	public String toString() {
-		return number + "\t| " + type + "\t| " + nbrPlace + "\t| " + departureCity  + "\t| " + arrivalCity + "\t| " + dateDepart;
+		return number + "\t| " + plane + "\t| " + nbrPlace + "\t| " + departureCity  + "\t| " + arrivalCity + "\t| " + dateDepart;
 	}
 }

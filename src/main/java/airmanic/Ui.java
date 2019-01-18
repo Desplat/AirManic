@@ -2,6 +2,8 @@ package airmanic;
 
 import java.util.Scanner;
 
+import main.Main;
+
 public class Ui {
 
 	public static void mainMenu() {
@@ -23,7 +25,7 @@ public class Ui {
 			bookingManagement();
 			break;
 		case 3:
-			Main.ui = false;
+			Main.changeUi();
 			break;
 		default:
 			System.out.println("Vous devez entrer 1, 2 ou 3 !");

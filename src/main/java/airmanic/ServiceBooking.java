@@ -3,6 +3,9 @@ package airmanic;
 import java.util.List;
 import java.util.Scanner;
 
+import dao.BookingDAO;
+import dao.FlightDAO;
+
 public class ServiceBooking {
 
 	private BookingDAO bookingDAO;

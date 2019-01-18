@@ -1,6 +1,13 @@
-package airmanic;
+package main;
 
 import java.util.Date;
+
+import airmanic.Booking;
+import airmanic.Flight;
+import airmanic.Plane;
+import airmanic.Ui;
+import dao.BookingDAO;
+import dao.FlightDAO;
 
 public class Main {
 
@@ -8,7 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Flight flight = new Flight("0001", Type.A380, 250, "Paris", "Bordeaux", new Date());
+		Flight flight = new Flight("0001", Plane.A380, 250, "Paris", "Bordeaux", new Date());
 		Booking booking = new Booking("Dupond", "Théo", 27, flight);
 		
 		FlightDAO flightDAO = new FlightDAO();
@@ -24,5 +31,10 @@ public class Main {
 		}
 		
 		System.out.println("\nA bientôt sur Air Manic !");
+	}
+	
+	public static void changeUi() {
+		
+		ui = false;
 	}
 }

@@ -1,6 +1,8 @@
-package airmanic;
+package dao;
 
 import javax.persistence.EntityManager;
+
+import airmanic.DatabaseHelper;
 
 public abstract class DAO<T> {
 	

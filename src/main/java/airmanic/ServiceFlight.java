@@ -6,8 +6,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import dao.FlightDAO;
+
 public class ServiceFlight {
 
+	private final static Logger LOG = LoggerFactory.getLogger(ServiceFlight.class);
+	
 	private FlightDAO flightDAO;
 
 	public ServiceFlight() {
@@ -24,7 +31,7 @@ public class ServiceFlight {
 
 		System.out.println("Entrez le type d'avion");
 		String quelType = lectureClavier.nextLine();
-		Type type = Type.valueOf(quelType);
+		Plane type = Plane.valueOf(quelType);
 
 		System.out.println("Entrez le nombre de place");
 		Integer numPlace = Integer.valueOf(lectureClavier.nextLine());
@@ -42,7 +49,7 @@ public class ServiceFlight {
 		try {
 			date = new SimpleDateFormat("dd/mm/yyyy").parse(quelleDate);
 		} catch (ParseException e) {
-			System.out.println(e.getMessage());
+			LOG.trace(e.getMessage());
 			date = new Date();
 		}
 
