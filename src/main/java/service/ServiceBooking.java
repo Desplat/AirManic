@@ -91,7 +91,7 @@ public class ServiceBooking {
 		LOG.trace("Numéro de réservation | Nom  | Prénom | Numéro de vol | Date de départ");
 
 		for (Booking booking : bookings) {
-			LOG.trace(booking.toString());
+			LOG.trace("{}", booking.toString());
 		}
 	}
 }
